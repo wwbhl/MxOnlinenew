@@ -1,4 +1,4 @@
-#-*- encoding:utf-8 -*-
+# _*_ encoding:utf-8 _*_
 from __future__ import unicode_literals
 from datetime import datetime
 
