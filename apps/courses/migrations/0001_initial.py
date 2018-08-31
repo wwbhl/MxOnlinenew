@@ -25,7 +25,7 @@ class Migration(migrations.Migration):
                 ('degree', models.CharField(choices=[('primary', '\u521d\u7ea7'), ('middle', '\u4e2d\u7ea7'), ('advanced', '\u9ad8\u7ea7')], max_length=2)),
                 ('learn_times', models.IntegerField(default=0, verbose_name='\u5b66\u4e60\u65f6\u957f\uff08\u5206\u949f\u6570\uff09')),
                 ('students', models.IntegerField(default=0, verbose_name='\u5b66\u4e60\u4eba\u6570')),
-                ('fav_num', models.IntegerField(default=0, verbose_name='\u6536\u85cf\u4eba\u6570')),
+                ('fav_nums', models.IntegerField(default=0, verbose_name='\u6536\u85cf\u4eba\u6570')),
                 ('image', models.ImageField(upload_to='courses/%Y/%m', verbose_name='\u5c01\u9762\u56fe')),
                 ('click_nums', models.IntegerField(default=0, verbose_name='\u70b9\u51fb\u6570')),
                 ('add_time', models.DateTimeField(default=datetime.datetime.now, verbose_name='\u6dfb\u52a0\u65f6\u95f4')),
