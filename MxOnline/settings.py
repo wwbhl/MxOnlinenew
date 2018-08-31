@@ -149,3 +149,4 @@ EMAIL_HOST_USER = 'test@jpyoo.com'
 EMAIL_HOST_PASSWORD = 'test123'
 EMAIL_USE_TLS = False
 EMAIL_FROM = 'test@jpyoo.com'
+
