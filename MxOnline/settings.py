@@ -150,3 +150,5 @@ EMAIL_HOST_PASSWORD = 'test123'
 EMAIL_USE_TLS = False
 EMAIL_FROM = 'test@jpyoo.com'
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
