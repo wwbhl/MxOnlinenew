@@ -40,6 +40,8 @@ class Migration(migrations.Migration):
                 ('image', models.ImageField(upload_to='courses/%Y/%m', verbose_name='\u5c01\u9762\u56fe')),
                 ('address', models.CharField(max_length=150, verbose_name='\u673a\u6784\u5730\u5740')),
                 ('add_time', models.DateTimeField(default=datetime.datetime.now)),
+                ('students', models.IntegerField(default=0, verbose_name='\u5b66\u4e60\u4eba\u6570')),
+                ('course_nums', models.IntegerField(default=0, verbose_name='\u8bfe\u7a0b\u6570')),
                 ('city', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='organization.CityDict', verbose_name='\u6240\u5728\u57ce\u5e02')),
             ],
             options={
