@@ -104,3 +104,31 @@ class OrgCourseView(View):
             'course_org':course_org,
             'current_age':current_age,
         })
+
+
+class OrgCDescView(View):
+    '''
+    机构介绍页
+    '''
+    def get(self, request, org_id):
+        current_age = 'desc'
+        course_org = CourseOrg.objects.get(id=int(org_id))
+        return  render(request, 'org-detail-desc.html', {
+            'course_org':course_org,
+            'current_age':current_age,
+        })
+
+
+class OrgTeacherView(View):
+    '''
+    教师列表页
+    '''
+    def get(self, request, org_id):
+        current_age = 'teacher'
+        course_org = CourseOrg.objects.get(id=int(org_id))
+        all_teachers = course_org.teacher_set.all()
+        return  render(request, 'org-detail-teachers.html', {
+            'all_teachers':all_teachers,
+            'course_org':course_org,
+            'current_age':current_age,
+        })
