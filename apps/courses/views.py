@@ -69,3 +69,15 @@ class CourseDetailView(View):
             'has_fav_course':has_fav_course,
             'has_fav_org':has_fav_org,
         })
+
+
+class CourseInfoView(View):
+    '''
+    课程章节信息
+    '''
+    def get(self, request, course_id):
+        course = Course.objects.get(id=int(course_id))
+
+        return render(request, 'course-video.html', {
+            'course': course,
+        })
