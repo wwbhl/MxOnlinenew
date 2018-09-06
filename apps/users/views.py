@@ -74,7 +74,7 @@ class LoginView(View):
             if user is not None:
                 if user.is_active:
                     login(request, user)
-                    return render(request, 'index.html')
+                    return render(request, 'index.html', {'user_name':user_name})
                 else:
                     return render(request, 'login.html', {'msg':'用户未激活'})
             else:
