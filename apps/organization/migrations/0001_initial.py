@@ -61,6 +61,7 @@ class Migration(migrations.Migration):
                 ('click_nums', models.IntegerField(default=0, verbose_name='\u70b9\u51fb\u6570')),
                 ('fav_nums', models.IntegerField(default=0, verbose_name='\u6536\u85cf\u4eba\u6570')),
                 ('add_time', models.DateTimeField(default=datetime.datetime.now)),
+                ('image', models.ImageField(default='', upload_to='teacher/%Y/%m', verbose_name='\u5934\u50cf')),
                 ('org', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='organization.CourseOrg', verbose_name='\u6240\u5c5e\u673a\u6784')),
             ],
             options={
