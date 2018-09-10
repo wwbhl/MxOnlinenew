@@ -34,7 +34,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('code', models.CharField(max_length=20, verbose_name='\u9a8c\u8bc1\u7801')),
                 ('email', models.EmailField(max_length=50, verbose_name='\u90ae\u7bb1')),
-                ('send_type', models.CharField(choices=[('register', '\u6ce8\u518c'), ('forget', '\u627e\u56de\u5bc6\u7801')], max_length=10)),
+                ('send_type', models.CharField(choices=[('register', '\u6ce8\u518c'), ('forget', '\u627e\u56de\u5bc6\u7801')], max_length=30)),
                 ('send_time', models.DateTimeField(default=datetime.datetime.now)),
             ],
             options={
