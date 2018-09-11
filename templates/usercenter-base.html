@@ -116,7 +116,7 @@
                                 <input type="file" name="image" id="avatarUp" class="js-img-up"/>
                             </span>
                         </label>
-                        <input type='hidden' name='csrfmiddlewaretoken' value='799Y6iPeEDNSGvrTu3noBrO4MBLv6enY' />
+                        {% csrf_token %}
                     </form>
                     <div style="border-top:1px solid #eaeaea;margin-top:30px;">
                         <a class="button btn-green btn-w100" id="jsUserResetPwd" style="margin:80px auto;width:100px;">修改密码</a>
@@ -151,7 +151,7 @@
 							<input type="button" id="jsEditUserBtn" value="保存">
 						</li>
 					</ul>
-                    <input type='hidden' name='csrfmiddlewaretoken' value='799Y6iPeEDNSGvrTu3noBrO4MBLv6enY' />
+                {% csrf_token %}
 				</form>
 			</div>
 		</div>
@@ -294,6 +294,7 @@
                     <input type="hidden" name="sms_type" value="1">
                     <input id="jsFindPwdBtn" type="button" value="提交" />
                 </div>
+                {% csrf_token %}
             </form>
         </div>
     </div>
@@ -323,11 +324,11 @@
         $.ajax({
                 cache: false,
                 type: "POST",
-                url: "/org/add_fav/",
+                url: "{% url "org:add_fav" %}",
                 data: {
                     fav_type: 1,
                     fav_id: favid,
-                    csrfmiddlewaretoken: '799Y6iPeEDNSGvrTu3noBrO4MBLv6enY'
+                    csrfmiddlewaretoken: '{{ csrf_token }}'
                 },
                 async: true,
                 success: function(data) {
@@ -342,11 +343,11 @@
             $.ajax({
                     cache: false,
                     type: "POST",
-                    url: "/org/add_fav/",
+                    url: "{% url "org:add_fav" %}",
                     data: {
                         fav_type: 3,
                         fav_id: favid,
-                        csrfmiddlewaretoken: '799Y6iPeEDNSGvrTu3noBrO4MBLv6enY'
+                        csrfmiddlewaretoken: '{{ csrf_token }}'
                     },
                     async: true,
                     success: function(data) {
@@ -362,11 +363,11 @@
             $.ajax({
                     cache: false,
                     type: "POST",
-                    url: "/org/add_fav/",
+                    url: "{% url "org:add_fav" %}",
                     data: {
                         fav_type: 2,
                         fav_id: favid,
-                        csrfmiddlewaretoken: '799Y6iPeEDNSGvrTu3noBrO4MBLv6enY'
+                        csrfmiddlewaretoken: '{{ csrf_token }}'
                     },
                     async: true,
                     success: function(data) {
