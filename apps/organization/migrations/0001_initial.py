@@ -34,6 +34,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=50, verbose_name='\u673a\u6784\u540d\u79f0')),
                 ('desc', models.TextField(verbose_name='\u673a\u6784\u63cf\u8ff0')),
+                ('tag', models.CharField(default='\u5168\u56fd\u77e5\u540d', max_length=10, verbose_name='\u673a\u6784\u6807\u7b7e')),
                 ('category', models.CharField(choices=[('pxjg', '\u57f9\u8bad\u673a\u6784'), ('gr', '\u4e2a\u4eba'), ('gx', '\u9ad8\u6821')], default='pxjg', max_length=20, verbose_name='\u673a\u6784\u7c7b\u522b'), ),
                 ('click_nums', models.IntegerField(default=0, verbose_name='\u70b9\u51fb\u6570')),
                 ('fav_nums', models.IntegerField(default=0, verbose_name='\u6536\u85cf\u4eba\u6570')),

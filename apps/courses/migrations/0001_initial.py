@@ -23,6 +23,7 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(max_length=50, verbose_name='\u8bfe\u7a0b\u540d')),
                 ('desc', models.CharField(max_length=300, verbose_name='\u8bfe\u7a0b\u63cf\u8ff0')),
                 ('detail', models.TextField(verbose_name='\u8bfe\u7a0b\u8be6\u60c5')),
+                ('is_banner', models.BooleanField(default=False, verbose_name='\u662f\u5426\u8f6e\u64ad')),
                 ('degree', models.CharField(choices=[('cj', '\u521d\u7ea7'), ('zj', '\u4e2d\u7ea7'), ('gj', '\u9ad8\u7ea7')], max_length=8, verbose_name='\u96be\u5ea6')),
                 ('learn_times', models.IntegerField(default=0, verbose_name='\u5b66\u4e60\u65f6\u957f\uff08\u5206\u949f\u6570\uff09')),
                 ('students', models.IntegerField(default=0, verbose_name='\u5b66\u4e60\u4eba\u6570')),
