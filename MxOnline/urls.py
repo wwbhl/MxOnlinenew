@@ -51,8 +51,10 @@ urlpatterns = [
     # url(r'^static/(?P<path>.*)$', serve, {'document_root':STATIC_ROOT}),
     # 课程相关url配置
     url(r'^users/', include('users.urls', namespace='users')),
-
+    # 富文本相关url
+    url(r'^ueditor/', include('DjangoUeditor.urls')),
 ]
+
 #全局404页面配置
 handler404 = 'users.views.page_not_found'
 handler500 = 'users.views.page_error'
