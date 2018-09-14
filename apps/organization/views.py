@@ -92,7 +92,7 @@ class OrgHomeView(View):
         course_org.click_nums += 1
         course_org.save()
         has_fav = False
-        if request.user.is_authenticated():
+        if request.user.is_authenticated:
             if UserFavorite.objects.filter(user=request.user, fav_id=course_org.id, fav_type=2):
                 has_fav = True
         all_courses = course_org.course_set.all()[:3]
@@ -114,7 +114,7 @@ class OrgCourseView(View):
         current_age = 'course'
         course_org = CourseOrg.objects.get(id=int(org_id))
         has_fav = False
-        if request.user.is_authenticated():
+        if request.user.is_authenticated:
             if UserFavorite.objects.filter(user=request.user, fav_id=course_org.id, fav_type=2):
                 has_fav = True
         all_courses = course_org.course_set.all()
@@ -134,7 +134,7 @@ class OrgCDescView(View):
         current_age = 'desc'
         course_org = CourseOrg.objects.get(id=int(org_id))
         has_fav = False
-        if request.user.is_authenticated():
+        if request.user.is_authenticated:
             if UserFavorite.objects.filter(user=request.user, fav_id=course_org.id, fav_type=2):
                 has_fav = True
         return  render(request, 'org-detail-desc.html', {
@@ -152,7 +152,7 @@ class OrgTeacherView(View):
         current_age = 'teacher'
         course_org = CourseOrg.objects.get(id=int(org_id))
         has_fav = False
-        if request.user.is_authenticated():
+        if request.user.is_authenticated:
             if UserFavorite.objects.filter(user=request.user, fav_id=course_org.id, fav_type=2):
                 has_fav = True
         all_teachers = course_org.teacher_set.all()
@@ -171,7 +171,7 @@ class AddFavView(View):
     def post(self, request):
         fav_id = request.POST.get('fav_id', 0)
         fav_type = request.POST.get('fav_type', 0)
-        if not request.user.is_authenticated():
+        if not request.user.is_authenticated:
             #判断用户登录状态
             return HttpResponse('{"status":"fail", "msg":"用户未登录"}', content_type='application/json')
         exist_records = UserFavorite.objects.filter(user=request.user, fav_id=int(fav_id), fav_type=int(fav_type))

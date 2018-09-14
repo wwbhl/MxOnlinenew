@@ -9,7 +9,7 @@ from django.views.generic.base import View
 from django.contrib.auth.hashers import make_password
 from django.http import HttpResponse, HttpResponseRedirect
 from pure_pagination import Paginator, EmptyPage, PageNotAnInteger
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 
 from .models import UserProfile, EmailVerifyRecord, Banner
 from .forms import LoginForm, RegisterForm, ForgetForm, ModifyPwdForm, UploadImageForm, UserInfoForm
@@ -128,7 +128,7 @@ class ResetView(View):
         if all_records:
             for record in all_records:
                 email = record.email
-                return render(request, 'password_reset.html', {'email':email, 'modify_form':modify_form})
+                return render(request, 'password_reset.html', {'email':email})
 
         else:
             return render(request, 'active_fail.html')
