@@ -1,8 +1,9 @@
 # -*- encoding:utf-8 -*-
 import json
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.hashers import check_password
 from django.contrib.auth.backends import ModelBackend
 from django.db.models import Q
 from django.views.generic.base import View
@@ -23,7 +24,7 @@ from courses.models import Course
 
 
 class CustomBackend(ModelBackend):
-    def authenticate(self, username=None, password=None, **kwargs):
+    def authenticate(self, request=None, username=None, password=None, **kwargs):
         try:
             user = UserProfile.objects.get(Q(username=username)|Q(email=username))
             if user.check_password(password):
@@ -91,10 +92,19 @@ class LoginView(View):
                 if user.is_active:
                     login(request, user)
                     return HttpResponseRedirect(reverse('index'))
-                else:
-                    return render(request, 'login.html', {'msg':'用户未激活'})
-            else:
-                return render(request, 'login.html', {'msg': '用户名或密码错误!'})
+            # try:
+            #     user=UserProfile.objects.get(username=user_name)
+            #     pwd=user.password
+            #     if check_password(pass_word, pwd):
+            #         if user.is_active:
+            #             login(request, user)
+            #             return redirect(reverse('index'))
+            #         else:
+            #             return render(request, 'login.html', {'msg':'用户未激活'})
+            #     else:
+            #         return render(request, 'login.html', {'msg': '用户名或密码错误!'})
+            # except UserProfile.DoesNotExist:
+            #     return render(request, 'login.html', {'errmsg': '用户不存在'})
         else:
             return render(request, 'login.html', {'login_form':login_form})
 
